@@ -65,8 +65,7 @@ public class ResponseUtil {
             data.put("page", page.getPageNum());
             data.put("limit", page.getPageSize());
             data.put("pages", page.getPages());
-        }
-        else{
+        } else {
             data.put("total", list.size());
             data.put("page", 1);
             data.put("limit", list.size());
@@ -86,8 +85,7 @@ public class ResponseUtil {
             data.put("page", page.getPageNum());
             data.put("limit", page.getPageSize());
             data.put("pages", page.getPages());
-        }
-        else{
+        } else {
             data.put("total", pagedList.size());
             data.put("page", 1);
             data.put("limit", pagedList.size());
@@ -108,6 +106,14 @@ public class ResponseUtil {
         Map<String, Object> obj = new HashMap<String, Object>();
         obj.put("errno", errno);
         obj.put("errmsg", errmsg);
+        return obj;
+    }
+
+    public static Object fail(int errno, String errmsg, String data) {
+        Map<String, Object> obj = new HashMap<String, Object>(3);
+        obj.put("errno", errno);
+        obj.put("errmsg", errmsg);
+        obj.put("data", data);
         return obj;
     }
 
